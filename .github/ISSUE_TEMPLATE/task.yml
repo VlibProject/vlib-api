@@ -1,0 +1,46 @@
+name: 📋 Task
+description: Development or maintenance task
+labels: [task]
+
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Concisely describe the task
+      placeholder: "Refactor UserService to improve readability"
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Provide more context or technical details
+      placeholder: "Move validation logic into a separate component..."
+
+  - type: textarea
+    id: subtasks
+    attributes:
+      label: Subtasks
+      description: Break down the work into smaller actionable items
+      placeholder: |
+        - [ ] Implement new validation class
+        - [ ] Update service layer
+        - [ ] Add unit tests
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes / References
+      description: Add any relevant links, documentation, or references
+      placeholder: "See doc: https://..."
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Pre-Work Checklist
+      description: Confirm these before starting
+      options:
+        - label: No existing issue covers this work.
+          required: true
