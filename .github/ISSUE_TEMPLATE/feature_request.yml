@@ -1,0 +1,52 @@
+name: ✨ Feature Request
+description: Suggest a new feature or improvement
+labels: [enhancement]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Concisely describe the feature
+      placeholder: "Add pagination to /users endpoint"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve?
+      placeholder: "Currently, fetching all users at once is inefficient..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your proposed solution
+      placeholder: "Implement pageable queries with limit/offset parameters"
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered other approaches?
+      placeholder: "Client-side filtering, caching, etc."
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or references
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Pre-Work Checklist
+      description: Confirm these before starting
+      options:
+        - label: No existing issue covers this work.
+          required: true
