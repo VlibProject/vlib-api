@@ -1,0 +1,66 @@
+name: 🐛 Bug Report
+description: Report a reproducible issue in the API
+labels: [bug]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Concisely describe the bug
+      placeholder: "API returns 500 when posting to /users"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide detailed steps, including endpoint, payload, headers, and auth context
+      placeholder: |
+        1. Endpoint: POST /api/v1/users
+        2. Payload: { "name": "..." }
+        3. Headers: Authorization: Bearer <token>
+        4. Steps...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should have happened
+      placeholder: "User is created and 201 is returned"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened
+      placeholder: "500 Internal Server Error"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Stack Trace
+      description: Paste relevant logs or stack trace
+      render: shell
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Java version, Spring Boot version, build tool, deployment context
+      placeholder: "Java 25, Spring Boot 3.5.7, Maven 3.9.5, Docker"
+
+  - type: checkboxes
+    attributes:
+      label: Pre-checks
+      options:
+        - label: I have searched existing issues to avoid duplicates
+          required: true
+        - label: I have tested with the latest version
+          required: true
