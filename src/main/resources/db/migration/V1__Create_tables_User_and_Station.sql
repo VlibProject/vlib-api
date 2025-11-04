@@ -16,4 +16,4 @@ CREATE TABLE station (
     city VARCHAR(20),
     description VARCHAR(300),
     last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)
+);

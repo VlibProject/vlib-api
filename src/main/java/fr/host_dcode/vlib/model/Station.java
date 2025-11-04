@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class Station {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String station_code;
@@ -64,7 +64,7 @@ public class Station {
         return this.address;
     }
 
-    private void setAddress(String address){
+    public void setAddress(String address){
         this.address = address;
     }
 
