@@ -26,8 +26,9 @@ public class Station {
 
     public Station(){}
 
-    public Station(String name, String stationCode, double latitude, double longitude, String description) {
+    public Station(String name, String recordId, String stationCode, double latitude, double longitude, String description) {
         this.name = name;
+        this.recordId = recordId;
         this.station_code = stationCode;
         this.latitude = latitude;
         this.longitude = longitude;
