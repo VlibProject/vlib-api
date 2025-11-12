@@ -3,7 +3,8 @@ CREATE TABLE users (
    email VARCHAR(50) NOT NULL,
    password VARCHAR(200) NOT NULL,
    status VARCHAR(20) NOT NULL,
-   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+   UNIQUE (email)
 );
 
 CREATE TABLE station (
