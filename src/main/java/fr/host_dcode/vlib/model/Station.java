@@ -10,10 +10,10 @@ import java.time.LocalDateTime;
 
 @Entity
 public class Station {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
+    private String recordId;
     private String name;
     private String station_code;
     private double latitude;
@@ -44,6 +44,10 @@ public class Station {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public String getRecordId(){
+        return this.recordId;
     }
 
     public String getDescription(){
