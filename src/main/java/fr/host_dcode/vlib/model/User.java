@@ -18,6 +18,7 @@ public class User {
     private String id;
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
     private Status status;
     private LocalDateTime created_at;
 
