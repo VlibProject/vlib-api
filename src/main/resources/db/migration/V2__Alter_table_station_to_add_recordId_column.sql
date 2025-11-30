@@ -1,0 +1,2 @@
+ALTER TABLE station
+    ADD COLUMN recordId VARCHAR(100) NOT NULL;
