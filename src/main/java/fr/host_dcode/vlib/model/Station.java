@@ -23,9 +23,6 @@ public class Station {
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
-    public Station() {
-    }
-
     public Station(String name, String recordId, String stationCode, String city, double latitude, double longitude,
             String description) {
         this.name = name;
