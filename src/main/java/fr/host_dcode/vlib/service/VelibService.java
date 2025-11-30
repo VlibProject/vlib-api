@@ -22,7 +22,7 @@ public class VelibService {
         this.stationRepository = stationRepository;
     }
 
-    public List<Station> fetchAndSaveVelibData() {
+    public void fetchAndSaveVelibData() {
 
         String queryUri = "?dataset=velib-disponibilite-en-temps-reel&rows=50";
 
@@ -34,10 +34,10 @@ public class VelibService {
 
         if (apiResponse == null || apiResponse.getRecords() == null || apiResponse.getRecords().isEmpty()) {
             System.out.println("Aucune donnée Velib reçue.");
-            return List.of();
+            return;
         }
 
-        List<Station> stationsToSave = apiResponse.getRecords().stream()
+        apiResponse.getRecords().stream()
                 .map(record -> {
                     VelibFields fields = record.getFields();
 
@@ -51,6 +51,7 @@ public class VelibService {
                             fields.getName(),
                             record.getRecordId(),
                             fields.getStation_code(),
+                            fields.getCity(),
                             latitude,
                             longitude,
                             description
@@ -58,14 +59,16 @@ public class VelibService {
 
                     return station;
                 })
-                .collect(Collectors.toList());
-
-        if (!stationsToSave.isEmpty()) {
-            System.out.println("Tentative d'enregistrement de " + stationsToSave.size() + " stations.");
-            return stationRepository.saveAll(stationsToSave);
-        }
-
-        return List.of();
+                .forEach(station ->{
+                    Station existingStation = stationRepository.findByStationCode(station.getStationCode());
+                    if(existingStation == null){
+                        stationRepository.save(station);
+                    } else {
+                        existingStation.setName(station.getName());
+                        //AJOUTER TOUTES LES MAJS
+                        stationRepository.save(existingStation);
+                    }
+                });
     }
 
 

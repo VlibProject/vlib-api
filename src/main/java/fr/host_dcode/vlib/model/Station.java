@@ -1,10 +1,8 @@
 package fr.host_dcode.vlib.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -13,30 +11,34 @@ public class Station {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+    @Column(name = "recordid")
     private String recordId;
     private String name;
-    private String station_code;
+    @Column(name = "station_code")
+    private String stationCode;
     private double latitude;
     private double longitude;
-    private String address;
     private String city;
     private String description;
+    @CreationTimestamp
+    @Column(name = "last_update")
     private LocalDateTime last_update;
 
 
     public Station(){}
 
-    public Station(String name, String recordId, String stationCode, double latitude, double longitude, String description) {
+    public Station(String name, String recordId, String stationCode,String city, double latitude, double longitude, String description) {
         this.name = name;
         this.recordId = recordId;
-        this.station_code = stationCode;
+        this.stationCode = stationCode;
+        this.city = city;
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;
     }
 
     public String getStationCode(){
-        return this.station_code;
+        return this.stationCode;
     }
 
     public String getName(){
@@ -65,13 +67,10 @@ public class Station {
         return this.longitude;
     }
 
-    public String getAddress(){
-        return this.address;
+    public String getCity(){
+        return this.city;
     }
-
-    public void setAddress(String address){
-        this.address = address;
-    }
+    public void setCity(String city){}
 
 
 }

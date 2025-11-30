@@ -1,8 +1,11 @@
 package fr.host_dcode.vlib.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class VelibRecord {
 
     private VelibFields fields;
+    @JsonProperty("recordid")
     public String recordId;
 
     public VelibFields getFields() {
@@ -16,6 +19,7 @@ public class VelibRecord {
     public String getRecordId(){
         return this.recordId;
     }
+
     public void setRecordId(String recordid) {
         this.recordId = recordid;
     }
