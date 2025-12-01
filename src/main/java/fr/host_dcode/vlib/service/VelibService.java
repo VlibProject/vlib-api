@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class VelibService {
@@ -45,7 +44,7 @@ public class VelibService {
                     double latitude = (coords != null && coords.size() >= 1) ? coords.get(0) : 0.0;
                     double longitude = (coords != null && coords.size() >= 2) ? coords.get(1) : 0.0;
 
-                    String description = fields.getName() + ". Dernière mise à jour: " + fields.getDuedate();
+                    String description = fields.getName() + ". Dernière mise à jour: " + (fields.getDuedate() != null ? fields.getDuedate() : "inconnue");
 
                     Station station = new Station(
                             fields.getName(),
@@ -65,7 +64,7 @@ public class VelibService {
                         stationRepository.save(station);
                     } else {
                         existingStation.setName(station.getName());
-                        //AJOUTER TOUTES LES MAJS
+                        //ADD ALL UPDATES
                         stationRepository.save(existingStation);
                     }
                 });

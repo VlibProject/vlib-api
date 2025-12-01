@@ -6,7 +6,7 @@ public class VelibRecord {
 
     private VelibFields fields;
     @JsonProperty("recordid")
-    public String recordId;
+    private String recordId;
 
     public VelibFields getFields() {
         return fields;
