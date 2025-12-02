@@ -29,7 +29,7 @@ public class VelibService {
                 .uri(queryUri)
                 .retrieve()
                 .bodyToMono(VelibApiResponse.class)
-                .block();
+                .block(java.time.Duration.ofSeconds(30));
 
         if (apiResponse == null || apiResponse.getRecords() == null || apiResponse.getRecords().isEmpty()) {
             System.out.println("Aucune donnée Velib reçue.");
