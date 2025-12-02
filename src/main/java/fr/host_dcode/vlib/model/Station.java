@@ -3,6 +3,7 @@ package fr.host_dcode.vlib.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -20,9 +21,9 @@ public class Station {
     private double longitude;
     private String city;
     private String description;
-    @CreationTimestamp
+    @UpdateTimestamp
     @Column(name = "last_update")
-    private LocalDateTime last_update;
+    private LocalDateTime lastUpdate;
 
 
     public Station(){}
