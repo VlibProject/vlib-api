@@ -27,7 +27,7 @@ public class VelibFields {
     }
 
     public String getDuedate(){
-        return this.duedate.toString();
+        return this.duedate != null ? this.duedate.toString() : null;
     }
 
     public List<Double> getCoordonnees_geo(){
