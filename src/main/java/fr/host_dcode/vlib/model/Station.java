@@ -1,6 +1,5 @@
 package fr.host_dcode.vlib.model;
 
-
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -25,10 +24,11 @@ public class Station {
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
+    public Station() {
+    }
 
-    public Station(){}
-
-    public Station(String name, String recordId, String stationCode,String city, double latitude, double longitude, String description) {
+    public Station(String name, String recordId, String stationCode, String city, double latitude, double longitude,
+            String description) {
         this.name = name;
         this.recordId = recordId;
         this.stationCode = stationCode;
@@ -38,40 +38,44 @@ public class Station {
         this.description = description;
     }
 
-    public String getStationCode(){
+    public String getStationCode() {
         return this.stationCode;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getRecordId(){
+    public String getRecordId() {
         return this.recordId;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return this.description;
     }
 
-    public void setDescription(String description){
+    public void setDescription(String description) {
         this.description = description;
     }
-    public Double getLatitude(){
+
+    public Double getLatitude() {
         return this.latitude;
     }
-    public Double getLongitude(){
+
+    public Double getLongitude() {
         return this.longitude;
     }
 
-    public String getCity(){
+    public String getCity() {
         return this.city;
     }
-    public void setCity(String city){}
 
+    public void setCity(String city) {
+        this.city = city;
+    }
 
 }
