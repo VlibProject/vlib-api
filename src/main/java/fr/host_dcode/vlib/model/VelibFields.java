@@ -22,7 +22,7 @@ public class VelibFields {
     public String getName(){
         return this.name;
     }
-    public String getStation_code(){
+    public String getStationCode(){
         return this.station_code;
     }
 
