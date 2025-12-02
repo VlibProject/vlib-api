@@ -13,7 +13,7 @@ public class StationService {
     public StationService(StationRepository stationRepository) {
         this.stationRepository = stationRepository;
     }
-    public List<Station> getAlls(){
+    public List<Station> getAll(){
         return stationRepository.findAll();
     }
 

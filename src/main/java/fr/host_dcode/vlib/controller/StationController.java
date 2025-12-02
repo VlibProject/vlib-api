@@ -21,7 +21,7 @@ public class StationController {
 
     @GetMapping("/")
     public List<Station> getAllStations(){
-        return stationService.getAlls();
+        return stationService.getAll();
     }
 
 
