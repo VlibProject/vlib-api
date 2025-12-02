@@ -9,10 +9,11 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class WebClientConfig {
     @Value("${velib.api.base-url}")
     private String baseUrl;
+
     @Bean
-    public WebClient webClient(){
+    public WebClient webClient() {
         return WebClient.builder()
-                .baseUrl(baseUrl)
+                .baseUrl(java.util.Objects.requireNonNull(baseUrl, "velib.api.base-url must not be null"))
                 .build();
     }
 }
