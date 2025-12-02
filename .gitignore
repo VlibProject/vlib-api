@@ -35,4 +35,3 @@ build/
 ### Fichier properties ###
 *.properties
 flyway.conf
-
