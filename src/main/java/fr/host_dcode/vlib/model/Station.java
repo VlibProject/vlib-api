@@ -1,10 +1,7 @@
 package fr.host_dcode.vlib.model;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -13,65 +10,71 @@ public class Station {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+    @Column(name = "recordid")
     private String recordId;
     private String name;
-    private String station_code;
+    @Column(name = "station_code")
+    private String stationCode;
     private double latitude;
     private double longitude;
-    private String address;
     private String city;
     private String description;
-    private LocalDateTime last_update;
+    @UpdateTimestamp
+    @Column(name = "last_update")
+    private LocalDateTime lastUpdate;
 
+    public Station() {
+    }
 
-    public Station(){}
-
-    public Station(String name, String recordId, String stationCode, double latitude, double longitude, String description) {
+    public Station(String name, String recordId, String stationCode, String city, double latitude, double longitude,
+            String description) {
         this.name = name;
         this.recordId = recordId;
-        this.station_code = stationCode;
+        this.stationCode = stationCode;
+        this.city = city;
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;
     }
 
-    public String getStationCode(){
-        return this.station_code;
+    public String getStationCode() {
+        return this.stationCode;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getRecordId(){
+    public String getRecordId() {
         return this.recordId;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return this.description;
     }
 
-    public void setDescription(String description){
+    public void setDescription(String description) {
         this.description = description;
     }
-    public Double getLatitude(){
+
+    public Double getLatitude() {
         return this.latitude;
     }
-    public Double getLongitude(){
+
+    public Double getLongitude() {
         return this.longitude;
     }
 
-    public String getAddress(){
-        return this.address;
+    public String getCity() {
+        return this.city;
     }
 
-    public void setAddress(String address){
-        this.address = address;
+    public void setCity(String city) {
+        this.city = city;
     }
-
 
 }
