@@ -12,7 +12,7 @@ public class VelibFields {
     private String recordId;
     private String name;
     @JsonProperty("stationcode")
-    private String station_code;
+    private String stationCode;
     @JsonProperty("nom_arrondissement_communes")
     private String city;
     private List<Double> coordonnees_geo;
@@ -23,7 +23,7 @@ public class VelibFields {
         return this.name;
     }
     public String getStationCode(){
-        return this.station_code;
+        return this.stationCode;
     }
 
     public String getDuedate(){
