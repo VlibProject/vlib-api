@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 public class VelibService {
-    public final WebClient webClient;
+    private final WebClient webClient;
     private final StationRepository stationRepository;
 
     public VelibService(WebClient webClient, StationRepository stationRepository) {
