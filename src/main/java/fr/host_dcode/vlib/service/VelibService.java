@@ -49,7 +49,7 @@ public class VelibService {
                     Station station = new Station(
                             fields.getName(),
                             record.getRecordId(),
-                            fields.getStation_code(),
+                            fields.getStationCode(),
                             fields.getCity(),
                             latitude,
                             longitude,
