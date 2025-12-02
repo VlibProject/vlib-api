@@ -20,8 +20,8 @@ public class VelibRecord {
         return this.recordId;
     }
 
-    public void setRecordId(String recordid) {
-        this.recordId = recordid;
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
     }
 
 }
