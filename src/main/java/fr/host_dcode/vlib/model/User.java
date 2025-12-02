@@ -20,7 +20,7 @@ public class User {
     private String password;
     @Enumerated(EnumType.STRING)
     private Status status;
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
 
     public User(){}
