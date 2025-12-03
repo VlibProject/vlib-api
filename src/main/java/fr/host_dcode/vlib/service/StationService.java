@@ -13,8 +13,13 @@ public class StationService {
     public StationService(StationRepository stationRepository) {
         this.stationRepository = stationRepository;
     }
+
     public List<Station> getAll(){
         return stationRepository.findAll();
+    }
+
+    public List<Station> searchByCriteria(String name, String city){
+        return stationRepository.findByCriteria(name, city);
     }
 
 
