@@ -1,5 +1,4 @@
 package fr.host_dcode.vlib.controller;
-
 import fr.host_dcode.vlib.model.Station;
 import fr.host_dcode.vlib.service.StationService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,9 +24,8 @@ public class StationController {
         return stationService.getAll();
     }
 
-
     @GetMapping("/search/")
-    public List<Station> searchByTerm(
+    public List<Station> searchByCriteria(
         @RequestParam(required = false) String name, 
         @RequestParam(required = false) String city,
         @RequestParam(required = false) String station_code){

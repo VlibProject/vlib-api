@@ -16,9 +16,9 @@ public interface StationRepository extends JpaRepository<Station, String> {
 
 
 @Query("SELECT s FROM Station s WHERE " +
-       "(:name IS NULL OR s.name LIKE CONCAT('%', CAST(:name AS string), '%')) AND " + 
-       "(:city IS NULL OR s.city LIKE CONCAT('%', CAST(:city AS string), '%')) AND " +
-       "(:station_code IS NULL OR s.stationCode LIKE CONCAT('%', CAST(:station_code AS string), '%'))")
+       "(:name IS NULL OR s.name LIKE CONCAT('%',:name, '%')) AND " + 
+       "(:city IS NULL OR s.city LIKE CONCAT('%',:city, '%')) AND " +
+       "(:station_code IS NULL OR s.stationCode LIKE CONCAT('%',:station_code, '%'))")
 List<Station> findByCriteria(@Param("name") String name, @Param("city") String city, @Param("station_code") String station_code);
 
 }
