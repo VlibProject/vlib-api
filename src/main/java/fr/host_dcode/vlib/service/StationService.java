@@ -20,9 +20,10 @@ public class StationService {
     }
 
     public Station updateStation(Station station, String id){
+        if (station == null) {
+            throw new IllegalArgumentException("Station object cannot be null");
+        }
         Station existingStation = stationRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("Station non trouvée avec l'id : " + id ));
-
-
         if (station.getName() != null) {
             existingStation.setName(station.getName());
         }
