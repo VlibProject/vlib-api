@@ -10,12 +10,17 @@ import java.util.List;
 public class StationService {
 
     private final StationRepository stationRepository;
+
     public StationService(StationRepository stationRepository) {
         this.stationRepository = stationRepository;
     }
+
     public List<Station> getAll(){
         return stationRepository.findAll();
     }
 
+    public List<Station> searchByCriteria(String name, String city, String station_code){
+        return stationRepository.findByCriteria(name, city, station_code);
+    }
 
 }
