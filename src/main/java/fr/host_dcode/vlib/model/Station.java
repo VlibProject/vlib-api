@@ -25,8 +25,9 @@ public class Station {
 
     public Station() {}
 
-    public Station(String name, String recordId, String stationCode, String city, double latitude, double longitude,
+    public Station(String id, String name, String recordId, String stationCode, String city, double latitude, double longitude,
             String description) {
+        this.id = id;
         this.name = name;
         this.recordId = recordId;
         this.stationCode = stationCode;
@@ -35,6 +36,11 @@ public class Station {
         this.longitude = longitude;
         this.description = description;
     }
+
+    public Station(String name, String recordId, String stationCode, String city, double latitude, double longitude, String description) {
+    }
+
+    public String getId() { return this.id;}
 
     public String getStationCode() {
         return this.stationCode;
