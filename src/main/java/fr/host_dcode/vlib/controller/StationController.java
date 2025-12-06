@@ -25,13 +25,12 @@ public class StationController {
     }
 
 
-
-    @GetMapping("/search")
+    @GetMapping("/search/")
     public List<Station> searchByTerm(
         @RequestParam(required = false) String name, 
-        @RequestParam(required = false)String city){
-            return stationService.searchByCriteria(name, city); 
+        @RequestParam(required = false) String city,
+        @RequestParam(required = false) String station_code){
+            return stationService.searchByCriteria(name, city, station_code); 
     }
-
 
 }
