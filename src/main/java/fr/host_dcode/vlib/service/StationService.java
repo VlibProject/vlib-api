@@ -21,7 +21,7 @@ public class StationService {
     }
 
     public Station updateStation(Station station, String id){
-        Station existingStation = stationRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("Station non trouvée avec l'id" + id ));
+        Station existingStation = stationRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("Station non trouvée avec l'id : " + id ));
 
 
         if (station.getName() != null) {
