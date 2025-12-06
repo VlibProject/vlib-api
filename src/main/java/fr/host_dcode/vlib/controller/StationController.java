@@ -30,6 +30,7 @@ public class StationController {
         @RequestParam(required = false) String city,
         @RequestParam(required = false) String station_code){
             return stationService.searchByCriteria(name, city, station_code); 
+    }
     @PutMapping("/update/{id}")
     public Station updateStation(@RequestBody Station station, @PathVariable("id") String id){
         return stationService.updateStation(station, id);
