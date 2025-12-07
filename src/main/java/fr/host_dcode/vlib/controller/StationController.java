@@ -1,8 +1,11 @@
 package fr.host_dcode.vlib.controller;
-
-
 import fr.host_dcode.vlib.model.Station;
 import fr.host_dcode.vlib.service.StationService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
@@ -26,8 +29,15 @@ public class StationController {
         return stationService.getAll(pageable);
     }
 
-
-    @PutMapping("/update/{id}") 
+    @GetMapping("/search/")
+    public List<Station> searchByCriteria(
+        @RequestParam(required = false) String name, 
+        @RequestParam(required = false) String city,
+        @RequestParam(required = false) String station_code){
+            return stationService.searchByCriteria(name, city, station_code); 
+    }
+    
+    @PutMapping("/update/{id}")
     public Station updateStation(@RequestBody Station station, @PathVariable("id") String id){
         return stationService.updateStation(station, id);
     }
