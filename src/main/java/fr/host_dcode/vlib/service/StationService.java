@@ -3,6 +3,9 @@ package fr.host_dcode.vlib.service;
 import fr.host_dcode.vlib.model.Station;
 import fr.host_dcode.vlib.repository.StationRepository;
 import jakarta.persistence.EntityNotFoundException;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +18,8 @@ public class StationService {
         this.stationRepository = stationRepository;
     }
 
-    public List<Station> getAll(){
-        return stationRepository.findAll();
+    public Page<Station> getAll(Pageable pageable){
+        return stationRepository.findAll(pageable);
     }
 
     public Station updateStation(Station station, String id){
