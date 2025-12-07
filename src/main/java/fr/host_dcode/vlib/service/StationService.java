@@ -11,6 +11,7 @@ import java.util.List;
 public class StationService {
 
     private final StationRepository stationRepository;
+
     public StationService(StationRepository stationRepository) {
         this.stationRepository = stationRepository;
     }
@@ -19,6 +20,10 @@ public class StationService {
         return stationRepository.findAll();
     }
 
+    public List<Station> searchByCriteria(String name, String city, String station_code){
+        return stationRepository.findByCriteria(name, city, station_code);
+    }
+    }
     public Station updateStation(Station station, String id){
         if (station == null) {
             throw new IllegalArgumentException("Station object cannot be null");
@@ -33,5 +38,4 @@ public class StationService {
         }
         return stationRepository.save(existingStation);
     }
-
 }
