@@ -8,7 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public class StationService {
@@ -23,8 +22,8 @@ public class StationService {
         return stationRepository.findAll(pageable);
     }
 
-    public List<Station> searchByCriteria(String name, String city, String station_code){
-        return stationRepository.findByCriteria(name, city, station_code);
+    public Page<Station> searchByCriteria(String name, String city, String station_code, Pageable pageable){
+        return stationRepository.findByCriteria(name, city, station_code, pageable);
     }
     
     public Station updateStation(Station station, String id){

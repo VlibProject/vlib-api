@@ -30,13 +30,14 @@ public class StationController {
     }
 
     @GetMapping("/search/")
-    public List<Station> searchByCriteria(
+    public Page<Station> searchByCriteria(
         @RequestParam(required = false) String name, 
         @RequestParam(required = false) String city,
-        @RequestParam(required = false) String station_code){
-            return stationService.searchByCriteria(name, city, station_code); 
+        @RequestParam(required = false) String station_code,
+        @PageableDefault(size = 10, sort = "name", direction = Sort.Direction.ASC) Pageable pageable){
+            return stationService.searchByCriteria(name, city, station_code, pageable); 
     }
-    
+
     @PutMapping("/update/{id}")
     public Station updateStation(@RequestBody Station station, @PathVariable("id") String id){
         return stationService.updateStation(station, id);
