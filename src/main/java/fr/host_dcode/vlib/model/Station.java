@@ -89,6 +89,4 @@ public class Station {
     public Integer getAvailableDocks() { return availableDocks; }
     public void setAvailableDocks(Integer availableDocks) { this.availableDocks = availableDocks; }
 
-
 }
- 
