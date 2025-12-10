@@ -50,7 +50,7 @@ public class StationService {
                 .orElseThrow(() -> new EntityNotFoundException("Station non trouvée avec l'id : " + id));
 
         if (realTime) {
-            realTimeService.realTimeData(station);
+            realTimeService.enrichWithRealTimeData(station);
         }
 
         return station;
