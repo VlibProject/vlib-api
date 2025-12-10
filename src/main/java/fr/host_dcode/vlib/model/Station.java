@@ -23,7 +23,7 @@ public class Station {
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
-    // Utilisation de @Transient pour que les données ne soient pas persistées en BDD
+    // Use of @Transient so that the data is not persisted in the database
     @Transient
     private Integer availableBikes;
     @Transient
