@@ -16,19 +16,19 @@ public class StationService {
         this.stationRepository = stationRepository;
     }
 
-    public List<Station> getAll(){
+    public List<Station> getAll() {
         return stationRepository.findAll();
     }
 
-    public List<Station> searchByCriteria(String name, String city, String station_code){
+    public List<Station> searchByCriteria(String name, String city, String station_code) {
         return stationRepository.findByCriteria(name, city, station_code);
     }
-    }
-    public Station updateStation(Station station, String id){
+
+    public Station updateStation(Station station, String id) {
         if (station == null) {
             throw new IllegalArgumentException("Station object cannot be null");
         }
-        Station existingStation = stationRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("Station non trouvée avec l'id : " + id ));
+        Station existingStation = stationRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Station non trouvée avec l'id : " + id));
         if (station.getName() != null) {
             existingStation.setName(station.getName());
         }
@@ -37,5 +37,12 @@ public class StationService {
             existingStation.setDescription(station.getDescription());
         }
         return stationRepository.save(existingStation);
+    }
+
+    public Station getStationById(String id) {
+        Station existingStation = stationRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Station non trouvée avec l'id : " + id));
+
+        return existingStation;
     }
 }

@@ -36,4 +36,9 @@ public class StationController {
         return stationService.updateStation(station, id);
     }
 
+    @GetMapping("/{id}")
+    public Station getStationById(@PathVariable("id") String id) {
+        return stationService.getStationById(id);
+    }
+
 }
