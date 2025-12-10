@@ -28,7 +28,7 @@ public class RealTimeService {
                 JsonNode record = rootNode.get("records").get(0);
                 JsonNode fields = record.get("fields");
 
-                // Récupération uniquement du nombre de vélos et bornes disponibles
+                // Retrieve only the number of available bikes and docks
                 station.setAvailableBikes(fields.has("numbikesavailable") ?
                         fields.get("numbikesavailable").asInt() : null);
                 station.setAvailableDocks(fields.has("numdocksavailable") ?
