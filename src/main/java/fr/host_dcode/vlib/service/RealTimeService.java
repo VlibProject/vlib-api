@@ -17,7 +17,7 @@ public class RealTimeService {
         this.objectMapper = objectMapper;
     }
 
-    public void realTimeData(Station station) {
+    public void enrichWithRealTimeData(Station station) {
         try {
             String url = "https://opendata.paris.fr/api/records/1.0/search/?dataset=velib-disponibilite-en-temps-reel&rows=1&q=stationcode:" + station.getStationCode();
 
