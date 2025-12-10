@@ -4,9 +4,11 @@ import fr.host_dcode.vlib.model.Station;
 import fr.host_dcode.vlib.repository.StationRepository;
 import fr.host_dcode.vlib.service.RealTimeService;
 import jakarta.persistence.EntityNotFoundException;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public class StationService {
@@ -19,15 +21,17 @@ public class StationService {
         this.realTimeService = realTimeService;
     }
 
-    public List<Station> getAll() {
-        return stationRepository.findAll();
+
+    public Page<Station> getAll(Pageable pageable){
+        return stationRepository.findAll(pageable);
     }
 
-    public List<Station> searchByCriteria(String name, String city, String station_code) {
-        return stationRepository.findByCriteria(name, city, station_code);
+    public Page<Station> searchByCriteria(String name, String city, String station_code, Pageable pageable){
+        return stationRepository.findByCriteria(name, city, station_code, pageable);
     }
+    
+    public Station updateStation(Station station, String id){
 
-    public Station updateStation(Station station, String id) {
         if (station == null) {
             throw new IllegalArgumentException("Station object cannot be null");
         }
