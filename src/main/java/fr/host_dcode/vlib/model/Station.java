@@ -83,10 +83,22 @@ public class Station {
         this.city = city;
     }
 
-    public Integer getAvailableBikes() { return availableBikes; }
-    public void setAvailableBikes(Integer availableBikes) { this.availableBikes = availableBikes; }
+    public Integer getAvailableBikes()
+    {
+        return availableBikes;
+    }
+    public void setAvailableBikes(Integer availableBikes)
+    {
+        this.availableBikes = availableBikes;
+    }
 
-    public Integer getAvailableDocks() { return availableDocks; }
-    public void setAvailableDocks(Integer availableDocks) { this.availableDocks = availableDocks; }
+    public Integer getAvailableDocks()
+    {
+        return availableDocks;
+    }
+    public void setAvailableDocks(Integer availableDocks)
+    {
+        this.availableDocks = availableDocks;
+    }
 
 }
