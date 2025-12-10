@@ -23,6 +23,12 @@ public class Station {
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
+    // Utilisation de @Transient pour que les données ne soient pas persistées en BDD
+    @Transient
+    private Integer availableBikes;
+    @Transient
+    private Integer availableDocks;
+
     public Station() {}
 
     public Station(String name, String recordId, String stationCode, String city, double latitude, double longitude, String description) {
@@ -76,6 +82,13 @@ public class Station {
     public void setCity(String city) {
         this.city = city;
     }
+
+    public Integer getAvailableBikes() { return availableBikes; }
+    public void setAvailableBikes(Integer availableBikes) { this.availableBikes = availableBikes; }
+
+    public Integer getAvailableDocks() { return availableDocks; }
+    public void setAvailableDocks(Integer availableDocks) { this.availableDocks = availableDocks; }
+
 
 }
  

@@ -2,6 +2,7 @@ package fr.host_dcode.vlib.service;
 
 import fr.host_dcode.vlib.model.Station;
 import fr.host_dcode.vlib.repository.StationRepository;
+import fr.host_dcode.vlib.service.RealTimeService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,11 @@ import java.util.List;
 public class StationService {
 
     private final StationRepository stationRepository;
+    private final RealTimeService realTimeService;
 
-    public StationService(StationRepository stationRepository) {
+    public StationService(StationRepository stationRepository, RealTimeService realTimeService) {
         this.stationRepository = stationRepository;
+        this.realTimeService = realTimeService;
     }
 
     public List<Station> getAll() {
@@ -39,10 +42,14 @@ public class StationService {
         return stationRepository.save(existingStation);
     }
 
-    public Station getStationById(String id) {
-        Station existingStation = stationRepository.findById(id)
+    public Station getStationById(String id, boolean realTime) {
+        Station station = stationRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Station non trouvée avec l'id : " + id));
 
-        return existingStation;
+        if (realTime) {
+            realTimeService.realTimeData(station);
+        }
+
+        return station;
     }
 }
