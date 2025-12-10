@@ -23,13 +23,9 @@ import java.util.List;
 public class StationController {
  
     private final StationService stationService;
-    private final RealTimeService realTimeService;
-    private final StationRepository stationRepository;
 
-    public StationController(StationService stationService, RealTimeService realTimeService, StationRepository stationRepository) {
+    public StationController(StationService stationService) {
         this.stationService = stationService;
-        this.realTimeService = realTimeService;
-        this.stationRepository = stationRepository;
     }
 
 
