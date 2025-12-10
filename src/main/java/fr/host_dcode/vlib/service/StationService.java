@@ -40,9 +40,7 @@ public class StationService {
     }
 
     public Station getStationById(String id) {
-        Station existingStation = stationRepository.findById(id)
+        return stationRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Station non trouvée avec l'id : " + id));
-
-        return existingStation;
     }
 }
