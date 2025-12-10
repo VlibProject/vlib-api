@@ -22,6 +22,10 @@ public class RealTimeService {
             String url = "https://opendata.paris.fr/api/records/1.0/search/?dataset=velib-disponibilite-en-temps-reel&rows=1&q=stationcode:" + station.getStationCode();
 
             String response = restTemplate.getForObject(url, String.class);
+            if (response == null) {
+                System.err.println("Erreur récupération temps réel pour station " + station.getStationCode() + ": réponse nulle de l'API externe.");
+                return;
+            }
             JsonNode rootNode = objectMapper.readTree(response);
 
             if (rootNode.has("records") && rootNode.get("records").size() > 0) {
