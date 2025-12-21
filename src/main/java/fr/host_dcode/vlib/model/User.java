@@ -39,5 +39,9 @@ public class User {
     }
 
 
+    public String getPassword(){
+        return this.password;
+    }
+
 
 }

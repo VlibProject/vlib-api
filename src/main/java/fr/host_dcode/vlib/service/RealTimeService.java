@@ -12,9 +12,9 @@ public class RealTimeService {
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
 
-    public RealTimeService(RestTemplate restTemplate, ObjectMapper objectMapper) {
-        this.restTemplate = restTemplate;
-        this.objectMapper = objectMapper;
+    public RealTimeService() {
+        this.restTemplate = new RestTemplate();
+        this.objectMapper = new ObjectMapper();
     }
 
     public void enrichWithRealTimeData(Station station) {
